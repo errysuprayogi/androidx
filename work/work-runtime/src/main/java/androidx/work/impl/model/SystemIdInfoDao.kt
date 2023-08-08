@@ -16,9 +16,8 @@
 package androidx.work.impl.model
 
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Upsert
 
 @JvmDefaultWithCompatibility
 /**
@@ -31,7 +30,7 @@ interface SystemIdInfoDao {
      *
      * @param systemIdInfo The [SystemIdInfo] to be inserted into the database.
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
     fun insertSystemIdInfo(systemIdInfo: SystemIdInfo)
 
     /**

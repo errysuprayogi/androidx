@@ -17,9 +17,8 @@ package androidx.work.impl.model
 
 import androidx.annotation.RestrictTo
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Upsert
 import androidx.work.Data
 
 /**
@@ -34,7 +33,7 @@ interface WorkProgressDao {
      *
      * @param progress The [WorkProgress]
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
     fun insert(progress: WorkProgress)
 
     /**

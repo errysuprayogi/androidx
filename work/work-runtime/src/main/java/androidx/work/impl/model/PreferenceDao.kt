@@ -17,9 +17,8 @@ package androidx.work.impl.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Upsert
 
 /**
  * A Data Access Object for accessing [Preference]s.
@@ -31,7 +30,7 @@ interface PreferenceDao {
      *
      * @param preference The [Preference] entity to be inserted into the database
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
     fun insertPreference(preference: Preference)
 
     /**
